@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="img/favicon_w.png" />
+        <title>Personal - Edicion</title>
+        <!-- FIREBASE BIBLIOTECAS -->
+        <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.5.0/firebase-storage.js"></script>
+        <script src="js/key.js"></script>
+        <!-- Bootstrap core CSS -->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        <!-- Additional CSS Files -->
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" />
+        <link rel="stylesheet" href="assets/css/fontawesome.css" />
+        <link rel="stylesheet" href="assets/css/tooplate-style.css" />
+        <link rel="stylesheet" href="assets/css/owl.css" />
+        <link rel="stylesheet" href="assets/css/lightbox.css" />
+        <!-- Personal CSS Files -->
+        <script type="module" src="templates/mi-nav.js"></script>
+        <script type="module" src="templates/mi-footer.js"></script>
+        <script type="module" src="templates/mi-progreso.js"></script>
+        <link href="css/personal.css" rel="stylesheet" />
+
+    </head>
+    <body>
+        <form name="forma">
+            <div id="page-wraper">
+              <!-- Sidebar Menu -->
+                <div class="responsive-nav">
+                  <i class="fa fa-bars" id="menu-toggle"></i>
+                  <div id="menu" class="menu">
+                    <i class="fa fa-times" id="menu-close"></i>
+                    <div class="container">
+                      <div class="image">
+                        <a href="#"><img id="avatar" src="" alt="Avatar"></a>
+                      </div>
+                      <div id="datos_genrales" class="author-content">
+                          <output name="nombre">
+                              <mi-progreso></mi-progreso>
+                          </output>
+                          <output name="email">
+                              <mi-progreso></mi-progreso>
+                          </output>
+                      </div>
+                      <nav class="main-nav" role="navigation">
+                          <mi-nav></mi-nav>  
+                      </nav>
+                      <div class="social-network">
+                            <ul class="soial-icons">
+                                <li>
+                                  <a href="https://www.facebook.com/garedmx"><i class="fa fa-facebook"></i></a>
+                                </li>
+                                <li>
+                                  <a href="https://twitter.com/gared_mx"><i class="fa fa-twitter"></i></a>
+                                </li>
+                                <li>
+                                  <a href="https://www.linkedin.com/in/edgar-francisco-santana-murillo-54b71a84/"><i class="fa fa-linkedin"></i></a>
+                                </li>
+                            </ul>
+                          <br>
+                            <div class="white-button">
+                                <button type="button" name="terminarSesión"> Terminar Sesión </button>
+                            </div>
+                      </div>
+
+                      <div class="copyright-text">
+                          <mi-footer></mi-footer>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <section class="section about-me" data-section="section1">
+                    <div class="container">
+                        <div class="top-header">
+                            <img src="assets/images/aerobic-girls.jpg" alt="aerobic girls" />
+                        </div>
+                        <div class="section-heading">
+
+                            <h2>SUCURSAL - ALTA</h2>
+                            <div class="line-dec"></div>
+                            <button name="eliminar" type="button" class="btn btn-danger"> Eliminar </button>
+                        </div>
+                        <div class="right-image-post">
+                            <div class="row">
+                              <div class="col-md-12">
+                                    <div class="form-row">
+                                      <div class="form-group col-md-6">
+                                        <label for="foto">Foto</label>
+                                        <input type="file" class="form-control-file" id="foto" name="foto" accept=".png,.jpg,.jpeg,.gif">
+                                      </div>
+                                        <div class="form-group col-md-6">
+                                            <img name="foto_file" id="foto_file" alt="Falta el Avatar" style="height: 200px; width: auto">
+                                      </div>
+                                        <div class="form-group col-md-6">
+                                        <label for="nombre">Nombre</label>
+                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required>
+                                      </div>
+                                        <div class="form-group col-md-6">
+                                        <label for="paterno">Paterno</label>
+                                        <input type="text" class="form-control" id="paterno" name="paterno" placeholder="Paterno" required>
+                                      </div>
+                                        <div class="form-group col-md-6">
+                                        <label for="materno">Materno</label>
+                                        <input type="text" class="form-control" id="materno" name="materno" placeholder="Materno" required>
+                                      </div>
+                                        <div class="form-group col-md-6">
+                                        <label for="email">Email</label>
+                                        <input type="text" class="form-control" id="email" name="email" placeholder="Email" readonly>
+                                      </div>
+                                        <div class="form-group col-md-6">
+                                        <label for="fecha_nacimiento">Fecha de Nacimiento</label>
+                                        <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" placeholder="Fecha Nacimiento" required>
+                                      </div>
+                                        <div class="form-group col-md-6">
+                                        <label for="cedula">Cedula</label>
+                                        <input type="text" class="form-control" id="cedula" name="cedula" placeholder="Cedula" required>
+                                      </div>
+                                        <div class="form-group col-md-6">
+                                        <label for="sucursal">Sucursal</label>
+                                        <select id="sucursal" class="form-control" name="sucursal" required>
+                                          <option>Cargando...</option>
+                                        </select>
+                                    </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-success">Guardar</button>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </form>
+    <script type="module" src="js/Controllers/Sesion.js"></script>    
+    <script type="module" src="js/Controllers/Personal.js"></script>
+    </body>
+</html>
